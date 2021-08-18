@@ -1,0 +1,5 @@
+prepare a Interface class that holds -
+    - the world window
+    - 
+
+    
