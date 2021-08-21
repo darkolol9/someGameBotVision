@@ -1,4 +1,5 @@
 import pyautogui
+from random import randint
 
 
 
@@ -8,7 +9,7 @@ class InterfaceManager:
         self.getTabsWindow()
         # print(list(self.tabsWindow.values())[:-1])
         inv = pyautogui.locateOnScreen('classes/assets/inv.png',region=(list(self.tabsWindow.values())[:-1]),confidence =0.6)
-        pyautogui.click((inv.left,inv.top))
+        pyautogui.click((inv.left,inv.top,))
 
 
 
@@ -27,6 +28,13 @@ class InterfaceManager:
         self.tabsWindow['img'] = img  
         
     
+    def goToCombat(self):
+        randomSpeed =(randint(2,5))/10
+        self.getTabsWindow()
+        combatTab = pyautogui.locateOnScreen('classes/assets/tabs.png',region=(list(self.tabsWindow.values())[:-1]),confidence=0.6)
+        pyautogui.moveTo(combatTab.left,combatTab.top,duration=randomSpeed)
+        pyautogui.click()
+
 
 
         
@@ -80,5 +88,5 @@ class InterfaceManager:
 
 
 I = InterfaceManager()
-I.goToInventory()
+I.goToCombat()
 
