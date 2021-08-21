@@ -4,6 +4,14 @@ import pyautogui
 
 class InterfaceManager:
 
+    def goToInventory(self):
+        self.getTabsWindow()
+        # print(list(self.tabsWindow.values())[:-1])
+        inv = pyautogui.locateOnScreen('classes/assets/inv.png',region=(list(self.tabsWindow.values())[:-1]),confidence =0.6)
+        pyautogui.click((inv.left,inv.top))
+
+
+
     def getTabsWindow(self):
         self.tabsWindow = {'x':pyautogui.locateOnScreen('classes/assets/tabs.png',confidence=0.7).left,
         'y':pyautogui.locateOnScreen('classes/assets/tabs.png',confidence=0.7).top,
@@ -72,6 +80,5 @@ class InterfaceManager:
 
 
 I = InterfaceManager()
-I.getComponenets()
-# I.prntInfo()
+I.goToInventory()
 
