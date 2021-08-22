@@ -1,4 +1,6 @@
+import numpy
 import pyautogui
+import cv2
 
 
 
@@ -28,9 +30,6 @@ class InterfaceManager:
         
     
 
-
-        
-
     def getWorldChat(self):
         self.worldChat = {'x':pyautogui.locateOnScreen('classes/assets/worldChat.png',confidence=0.7).left,
         'y':pyautogui.locateOnScreen('classes/assets/worldChat.png',confidence=0.7).top - 145,
@@ -46,9 +45,23 @@ class InterfaceManager:
         self.worldChat['img'] = img
         
 
+    def getHP(self):
+        self.hpBar = {'x':pyautogui.locateOnScreen('classes/assets/hpBar.png',confidence=0.5).left,
+        'y':pyautogui.locateOnScreen('classes/assets/hpBar.png',confidence=0.5).top,
+        'w': 21,
+        'h': 252
+        }
+
+        img = pyautogui.screenshot(region=(self.hpBar['x'],
+        self.hpBar['y'],
+        self.hpBar['w'],
+        self.hpBar['h']))
+        self.hpBar['img'] = img 
+
+        img.save("classes/assets/halfHP.png")
+
 
     def getMiniMap(self):
-
         self.minimap = {'x':pyautogui.locateOnScreen('classes/assets/minimap.png',confidence=0.7).left,
         'y':pyautogui.locateOnScreen('classes/assets/minimap.png',confidence=0.7).top -  17,
         'w': 213,
@@ -80,5 +93,5 @@ class InterfaceManager:
 
 
 I = InterfaceManager()
-I.goToInventory()
+I.getHP()
 
