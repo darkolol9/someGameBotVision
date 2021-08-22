@@ -58,8 +58,6 @@ class InterfaceManager:
         self.hpBar['w'],
         self.hpBar['h']))
         self.hpBar['img'] = img 
-
-        img.save('newpic.png')
            
 
     def getMiniMap(self):
