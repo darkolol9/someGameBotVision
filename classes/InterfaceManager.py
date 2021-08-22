@@ -14,18 +14,21 @@ class InterfaceManager:
 # 322
 # 79
 
-    def testHit(self):
+    def isFighting(self):
+        return (self.isHit() or self.isHit() or self.isHit())
 
-        hit = pyautogui.locateOnScreen('classes/assets/hit.png',
-        confidence=0.50,region=(self.minimap['x'] - 322,
+    def isHit(self):
+
+        hit = pyautogui.locateOnScreen('classes/assets/def.png',
+        confidence=0.60,region=(self.minimap['x'] - 322,
         self.minimap['y']+79,145,145))
 
-        # img = pyautogui.screenshot(region=(self.minimap['x'] - 322,
-        # self.minimap['y']+79,145,145))
-
-        # img.save('regionsplit.png')
+        
         if (hit):
-            print('got hit!')
+            return True
+
+        else :
+            return False
 
 
     def getTabsWindow(self):
@@ -107,8 +110,6 @@ I.getComponenets()
 i = 0
 print('starting')
 while True:
-    I.testHit()
-    print(i)
-    i += 1
+    print(I.isFighting())
 
 
