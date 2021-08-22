@@ -46,8 +46,9 @@ class InterfaceManager:
         
 
     def getHP(self):
-        self.hpBar = {'x':pyautogui.locateOnScreen('classes/assets/hpBar.png',confidence=0.5).left,
-        'y':pyautogui.locateOnScreen('classes/assets/hpBar.png',confidence=0.5).top,
+        locate= pyautogui.locateOnScreen('classes/assets/hpBar.png',confidence=0.5)
+        self.hpBar = {'x':locate.left,
+        'y':locate.top,
         'w': 21,
         'h': 252
         }
@@ -58,8 +59,8 @@ class InterfaceManager:
         self.hpBar['h']))
         self.hpBar['img'] = img 
 
-        img.save("classes/assets/halfHP.png")
-
+        img.save('newpic.png')
+           
 
     def getMiniMap(self):
         self.minimap = {'x':pyautogui.locateOnScreen('classes/assets/minimap.png',confidence=0.7).left,
