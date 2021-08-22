@@ -11,6 +11,24 @@ class InterfaceManager:
         inv = pyautogui.locateOnScreen('classes/assets/inv.png',region=(list(self.tabsWindow.values())[:-1]),confidence =0.6)
         pyautogui.click((inv.left,inv.top,))
 
+# 322
+# 79
+
+    def isFighting(self):
+        return (self.isHit() or self.isHit() or self.isHit())
+
+    def isHit(self):
+
+        hit = pyautogui.locateOnScreen('classes/assets/def.png',
+        confidence=0.60,region=(self.minimap['x'] - 322,
+        self.minimap['y']+79,145,145))
+
+        
+        if (hit):
+            return True
+
+        else :
+            return False
 
 
     def getTabsWindow(self):
@@ -88,5 +106,10 @@ class InterfaceManager:
 
 
 I = InterfaceManager()
-I.goToCombat()
+I.getComponenets()
+i = 0
+print('starting')
+while True:
+    print(I.isFighting())
+
 
